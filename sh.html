@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LEGAL LENS - Legal Contract Summarizer</title>
+
+<!-- Sassy Fonts -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fontleroy+Beautiful&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cupid+Fontleroy&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+  :root {
+    --primary-color: #b57edc;
+    --secondary-color: #9f79b8;
+    --accent-color: #d8b4ef;
+    --background-gradient: linear-gradient(45deg, #f4e1f9, #d3bfe6);
+    --button-color: #a678c2;
+    --button-hover: #8d60ab;
+    --text-color: #352f44;
+    --background-color: #fff;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Cupid Fontleroy', cursive; /* Changed to Cupid Fontleroy */
+    background: var(--background-gradient);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+  }
+
+  header {
+    background: #fff;
+    width: 100%;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    text-align: center;
+    border-bottom: 6px solid var(--accent-color);
+  }
+
+  header h1 {
+    font-family: 'Fontleroy Beautiful', cursive; /* Changed to Fontleroy Beautiful for cursive effect */
+    font-size: 3.5rem; /* Increased size for better visibility */
+    margin: 0;
+    color: var(--primary-color);
+    letter-spacing: -2px; /* Decreased letter spacing to connect letters */
+    text-transform: none; /* Ensure text is not in all caps */
+  }
+
+  header p {
+    margin: 0.5rem 0 0; /* Adjusted margin for better spacing */
+    font-family: 'Dancing Script', cursive; /* Changed to Dancing Script for a cute style */
+    font-weight: 600; /* Increased weight for emphasis */
+    font-size: 1.5rem; /* Increased font size */
+    color: var(--secondary-color);
+  }
+
+  main {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    max-width: 900px;
+    width: 90%;
+    margin: 2rem 0;
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: pulse 3s infinite alternate;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 15px 30px rgba(181,126,220,0.4); }
+    100% { box-shadow: 0 25px 40px rgba(181,126,220,0.7);}
+  }
+
+  main img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 180px;
+    border-radius: 12px;
+    border: 2px solid var(--accent-color);
+    padding: 1rem;
+    font-size: 1.2rem; /* Increased font size */
+    font-family: 'Cupid Fontleroy', cursive; /* Changed to Cupid Fontleroy */
+    resize: vertical;
+    margin-bottom: 1.25rem;
+    transition: border-color 0.3s ease;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
+  }
+
+  button {
+    background-color: var(--button-color);
+    color: #fff;
+    padding: 0.9rem 2.25rem;
+    font-size: 1.3rem; /* Increased font size for better touch targets */
+    font-weight: 700; /* Bold font for buttons */
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 12px rgba(166,120,194,0.6);
+    font-family: 'Cupid Fontleroy', cursive; /* Changed to Cupid Fontleroy */
+    letter-spacing: 1px;
+  }
+
+  button:hover {
+    background-color: var(--button-hover);
+  }
+
+  .summary-container {
+    margin-top: 2rem;
+    width: 100%;
+    background: #f8e8ff;
+    padding: 1.5rem 2rem;
+    border-radius: 18px;
+    color: #5e3a66;
+    font-weight: 600;
+    font-size: 1.15rem;
+    min-height: 100px;
+    white-space: pre-wrap;
+    box-shadow: inset 0 0 8px #d8b4ef55;
+    font-family: 'Cupid Fontleroy', cursive; /* Changed to Cupid Fontleroy */
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 1rem 0;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    background: transparent;
+    text-align: center;
+    font-family: 'Cupid Fontleroy', cursive; /* Changed to Cupid Fontleroy */
+  }
+
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2.4rem;
+    }
+    main {
+      padding: 1.5rem 2rem;
+      width: 95%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Legal Lens</h1> <!-- Changed to title case -->
+  <p>by <span style="color: var(--accent-color);">CODECRAFTERS</span></p>
+</header>
+
+<main>
+  <img src="https://cdn-icons-png.flaticon.com/512/2921/2921825.png" alt="Legal Document Icon" />
+  <textarea id="contractInput" placeholder="Paste your legal contract text here..."></textarea>
+  <button id="summarizeBtn">Summarize Contract</button>
+  <div class="summary-container" id="summaryOutput">Your summary will appear here with sass and style! ✨</div>
+</main>
+
+<footer>
+  © 2024 LEGAL LENS by CODECRAFTERS - Stay sassy and legally savvy!
+</footer>
+
+<script>
+  function simpleSummary(text) {
+    if(!text.trim()) return "Hmm... You need to paste some text before I can work my magic! 😉";
+
+    let sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+    let summary = '';
+
+    for(let i=0; i<Math.min(3, sentences.length); i++) {
+      summary += sentences[i].trim() + ' ';
+    }
+    summary = summary.trim();
+
+    if(summary.length > 300) {
+      summary = summary.substring(0, 300) + '...';
+    }
+
+    const sassComments = [
+      "Looks like a legal beast tamed! ✔️",
+      "Summarized with sass and class! 💃",
+      "Cut from 10 pages to 3 sentences - bam! ⚡",
+      "More legalease, less legalease! 😉",
+      "Your legal lens just got sharper! 🔍"
+    ];
+    const comment = sassComments[Math.floor(Math.random() * sassComments.length)];
+
+    return summary + "\n\n" + comment;
+  }
+
+  document.getElementById('summarizeBtn').addEventListener('click', () => {
+    const input = document.getElementById('contractInput').value;
+    const output = simpleSummary(input);
+    document.getElementById('summaryOutput').textContent = output;
+  });
+</script>
+
+</body>
+</html>
